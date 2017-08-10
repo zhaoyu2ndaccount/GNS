@@ -1,0 +1,180 @@
+displaying logs for MobilityFirst/GNS#1135.1
+travis_fold:start:worker_infoWorker information
+hostname: production-3-worker-org-c-3-gce:c33d21ee-be64-4e58-b20a-503d640e9add
+version: v2.9.3 https://github.com/travis-ci/worker/tree/a41c772c638071fbbdbc106f31a664c0532e0c36
+instance: testing-gce-306234d4-4513-4560-a892-2f93ea1d8ade:travis-ci-jvm-precise-1491941442 (via amqp)
+startup: 21.916941936s
+travis_fold:end:worker_info_infoBuild system information
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: 263265778
+Job id: 263265788
+travis-build version: 9af302805
+Build image provisioning date and time
+Tue Apr 11 20:22:39 UTC 2017
+Operating System Details
+Distributor ID:Ubuntu
+Description:Ubuntu 12.04.5 LTS
+Release:12.04
+Codename:precise
+Linux Version
+3.13.0-115-generic
+Cookbooks Version
+cc4eb5e https://github.com/travis-ci/travis-cookbooks/tree/cc4eb5e
+Git version
+git version 1.8.5.6
+bash version
+GNU bash, version 4.2.25(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+GCC version
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+LLVM version
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Pre-installed Ruby versions
+ruby-2.2.6
+Pre-installed Node.js versions
+v0.10.36
+Pre-installed Go versions
+1.7.4
+mysql --version
+mysql  Ver 14.14 Distrib 5.5.54, for debian-linux-gnu (x86_64) using readline 6.2
+Pre-installed PostgreSQL versions
+9.1.24
+9.2.20
+9.3.16
+9.4.11
+9.5.6
+Redis version
+redis-server 3.0.7
+riak version
+2.0.2
+memcached version
+1.4.13
+MongoDB version
+MongoDB 2.4.14
+CouchDB version
+couchdb 1.6.1
+Installed Sphinx versions
+2.0.10
+2.1.9
+2.2.6
+Default Sphinx version
+2.2.6
+Installed Firefox version
+firefox 38.4.0esr
+PhantomJS version
+1.9.8
+ant -version
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+mvn -version
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_121, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-115-generic", arch: "amd64", family: "unix"
+gradle -version
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.8.0_121 (Oracle Corporation 25.121-b13)
+OS:           Linux 3.13.0-115-generic amd64
+
+lein1 version
+WARNING: Clojure jar failed to download from http://build.clojure.org/releases/org/clojure/clojure/1.2.1/clojure-1.2.1.jar
+Downloading Leiningen now...
+WARNING: Clojure jar failed to download from http://build.clojure.org/releases/org/clojure/clojure/1.2.1/clojure-1.2.1.jar
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_80 Java HotSpot(TM) 64-Bit Server VM
+lein2 version
+Downloading Leiningen to /home/travis/.lein/self-installs/home/travis/.lein/leiningen-2.5.1-standalone.jar now...
+Leiningen 2.5.1 on Java 1.7.0_80 Java HotSpot(TM) 64-Bit Server VM
+lein version
+Downloading Leiningen to /home/travis/.lein/self-installs/home/travis/.lein/leiningen-2.5.1-standalone.jar now...
+Leiningen 2.5.1 on Java 1.7.0_80 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info/ubuntu/dists/precise-updates/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-backports/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise/Release.gpg: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://security.ubuntu.com/ubuntu/dists/precise-security/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/Release.gpg: Signature by key 492EAFE8CD016A07919F1D2B9ECBEC467F0CEB10 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/precise/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/git-core/v1.8/ubuntu/dists/precise/Release.gpg: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak digest algorithm (SHA1)
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:start:git.checkoute:start:012be7d6p_052f0_head_check https://github.com/MobilityFirst/GNS.git MobilityFirst/GNS
+Cloning into 'MobilityFirst/GNS'...
+remote: Counting objects: 5851, done.ote: Compressing objects:   0% (1/2635)   ote: Compressing objects:   1% (27/2635)   ote: Compressing objects:   2% (53/2635)   ote: Compressing objects:   3% (80/2635)   ote: Compressing objects:   4% (106/2635)   ote: Compressing objects:   5% (132/2635)   ote: Compressing objects:   6% (159/2635)   ote: Compressing objects:   7% (185/2635)   ote: Compressing objects:   8% (211/2635)   ote: Compressing objects:   9% (238/2635)   ote: Compressing objects:  10% (264/2635)   ote: Compressing objects:  10% (268/2635)   ote: Compressing objects:  10% (271/2635)   ote: Compressing objects:  10% (274/2635)   ote: Compressing objects:  10% (276/2635)   ote: Compressing objects:  10% (277/2635)   ote: Compressing objects:  10% (278/2635)   ote: Compressing objects:  10% (279/2635)   ote: Compressing objects:  10% (280/2635)   ote: Compressing objects:  10% (282/2635)   ote: Compressing objects:  11% (290/2635)   ote: Compressing objects:  12% (317/2635)   ote: Compressing objects:  13% (343/2635)   ote: Compressing objects:  14% (369/2635)   ote: Compressing objects:  15% (396/2635)   ote: Compressing objects:  16% (422/2635)   ote: Compressing objects:  17% (448/2635)   ote: Compressing objects:  18% (475/2635)   ote: Compressing objects:  19% (501/2635)   ote: Compressing objects:  20% (527/2635)   ote: Compressing objects:  21% (554/2635)   ote: Compressing objects:  22% (580/2635)   ote: Compressing objects:  23% (607/2635)   ote: Compressing objects:  24% (633/2635)   ote: Compressing objects:  25% (659/2635)   ote: Compressing objects:  26% (686/2635)   ote: Compressing objects:  27% (712/2635)   ote: Compressing objects:  28% (738/2635)   ote: Compressing objects:  29% (765/2635)   ote: Compressing objects:  30% (791/2635)   ote: Compressing objects:  31% (817/2635)   ote: Compressing objects:  32% (844/2635)   ote: Compressing objects:  33% (870/2635)   ote: Compressing objects:  34% (896/2635)   ote: Compressing objects:  35% (923/2635)   ote: Compressing objects:  36% (949/2635)   ote: Compressing objects:  37% (975/2635)   ote: Compressing objects:  38% (1002/2635)   ote: Compressing objects:  39% (1028/2635)   ote: Compressing objects:  40% (1054/2635)   ote: Compressing objects:  41% (1081/2635)   ote: Compressing objects:  42% (1107/2635)   ote: Compressing objects:  43% (1134/2635)   ote: Compressing objects:  44% (1160/2635)   ote: Compressing objects:  45% (1186/2635)   ote: Compressing objects:  46% (1213/2635)   ote: Compressing objects:  47% (1239/2635)   ote: Compressing objects:  48% (1265/2635)   ote: Compressing objects:  49% (1292/2635)   ote: Compressing objects:  50% (1318/2635)   ote: Compressing objects:  51% (1344/2635)   ote: Compressing objects:  52% (1371/2635)   ote: Compressing objects:  53% (1397/2635)   ote: Compressing objects:  54% (1423/2635)   ote: Compressing objects:  55% (1450/2635)   ote: Compressing objects:  56% (1476/2635)   ote: Compressing objects:  57% (1502/2635)   ote: Compressing objects:  58% (1529/2635)   ote: Compressing objects:  59% (1555/2635)   ote: Compressing objects:  60% (1581/2635)   ote: Compressing objects:  61% (1608/2635)   ote: Compressing objects:  62% (1634/2635)   ote: Compressing objects:  63% (1661/2635)   ote: Compressing objects:  64% (1687/2635)   ote: Compressing objects:  65% (1713/2635)   ote: Compressing objects:  66% (1740/2635)   ote: Compressing objects:  67% (1766/2635)   ote: Compressing objects:  68% (1792/2635)   ote: Compressing objects:  69% (1819/2635)   ote: Compressing objects:  70% (1845/2635)   ote: Compressing objects:  71% (1871/2635)   ote: Compressing objects:  72% (1898/2635)   ote: Compressing objects:  73% (1924/2635)   ote: Compressing objects:  74% (1950/2635)   ote: Compressing objects:  75% (1977/2635)   ote: Compressing objects:  76% (2003/2635)   ote: Compressing objects:  77% (2029/2635)   ote: Compressing objects:  78% (2056/2635)   ote: Compressing objects:  79% (2082/2635)   ote: Compressing objects:  80% (2108/2635)   ote: Compressing objects:  81% (2135/2635)   ote: Compressing objects:  82% (2161/2635)   ote: Compressing objects:  83% (2188/2635)   ote: Compressing objects:  84% (2214/2635)   ote: Compressing objects:  85% (2240/2635)   ote: Compressing objects:  86% (2267/2635)   ote: Compressing objects:  87% (2293/2635)   ote: Compressing objects:  88% (2319/2635)   ote: Compressing objects:  89% (2346/2635)   ote: Compressing objects:  90% (2372/2635)   ote: Compressing objects:  91% (2398/2635)   ote: Compressing objects:  92% (2425/2635)   ote: Compressing objects:  93% (2451/2635)   ote: Compressing objects:  94% (2477/2635)   ote: Compressing objects:  95% (2504/2635)   ote: Compressing objects:  96% (2530/2635)   ote: Compressing objects:  97% (2556/2635)   ote: Compressing objects:  98% (2583/2635)   ote: Compressing objects:  99% (2609/2635)   ote: Compressing objects: 100% (2635/2635)   ote: Compressing objects: 100% (2635/2635), done.ote: Total 5851 (delta 3246), reused 4656 (delta 2456), pack-reused 0e:end:012be7d6:start=1502400218683388560,finish=1502400244219452522,duration=25536063962e:start:24df0988ongodb start
+ * Starting database mongodb       e:end:24df0988:start=1502400244438209169,finish=1502400245479041074,duration=1040831905x32m -version
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_121
+travis_fold:start:before_scripte:start:30b86809e/travis/build/MobilityFirst/GNS/build.xml
+
+init:
+    [mkdir] Created dir: /home/travis/build/MobilityFirst/GNS/build
+    [mkdir] Created dir: /home/travis/build/MobilityFirst/GNS/build/classes
+    [mkdir] Created dir: /home/travis/build/MobilityFirst/GNS/build/test/classes
+
+buildnumber:
+     [echo] Version: 1.19.15_build0
+
+compile:
+    [javac] Compiling 550 source files to /home/travis/build/MobilityFirst/GNS/build/classes
+    [javac] /home/travis/build/MobilityFirst/GNS/test/edu/umass/cs/gnsclient/client/singletests/AliasTest.java:58: warning: [cast] redundant cast to GNSClientCommands
+    [javac]     clientCommands = (GNSClientCommands)new GNSClientCommands(client);
+    [javac]                      ^
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 1 warning
+    [javac] Creating empty /home/travis/build/MobilityFirst/GNS/build/classes/edu/umass/cs/gnsserver/gnsapp/clientCommandProcessor/commandSupport/package-info.class
+    [javac] Creating empty /home/travis/build/MobilityFirst/GNS/build/classes/edu/umass/cs/gnsserver/gnsapp/clientSupport/package-info.class
+    [javac] Creating empty /home/travis/build/MobilityFirst/GNS/build/classes/edu/umass/cs/gnsserver/localnameserver/package-info.class
+    [javac] Creating empty /home/travis/build/MobilityFirst/GNS/build/classes/edu/umass/cs/gnsserver/gnsapp/clientCommandProcessor/commands/package-info.class
+    [javac] Creating empty /home/travis/build/MobilityFirst/GNS/build/classes/edu/umass/cs/gnsserver/database/package-info.class
+    [javac] Compiling 83 source files to /home/travis/build/MobilityFirst/GNS/build/test/classes
+    [javac] /home/travis/build/MobilityFirst/GNS/test/edu/umass/cs/gnsclient/client/singletests/AliasTest.java:58: warning: [cast] redundant cast to GNSClientCommands
+    [javac]     clientCommands = (GNSClientCommands)new GNSClientCommands(client);
+    [javac]                      ^
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 1 warning
+      [get] Getting: https://raw.githubusercontent.com/MobilityFirst/gigapaxos/master/bin/gpServer.sh
+      [get] To: /home/travis/build/MobilityFirst/GNS/bin/gpServer.sh
+      [get] Getting: https://raw.githubusercontent.com/MobilityFirst/gigapaxos/master/bin/gpClient.sh
+      [get] To: /home/travis/build/MobilityFirst/GNS/bin/gpClient.sh
+      [get] Getting: https://raw.githubusercontent.com/MobilityFirst/gigapaxos/master/bin/gpEnv.sh
+      [get] To: /home/travis/build/MobilityFirst/GNS/bin/gpEnv.sh
+
+server_jarbuild:
+    [mkdir] Created dir: /home/travis/build/MobilityFirst/GNS/jars
+      [jar] Building jar: /home/travis/build/MobilityFirst/GNS/jars/gnsserver-1.19.15.jar
+
+BUILD FAILED
+/home/travis/build/MobilityFirst/GNS/build.xml:90: Problem creating jar: /home/travis/build/MobilityFirst/GNS/conf/app_resources (No such file or directory)
+
+Total time: 17 seconds
+
+travis_time:end:30b86809:start=1502400249269968188,finish=1502400266953380535,duration=17683412347The command "ant" failed and exited with 1 during .
+
+Your build has been stopped.
