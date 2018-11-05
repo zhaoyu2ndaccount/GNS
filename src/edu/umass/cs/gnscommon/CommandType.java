@@ -274,6 +274,24 @@ public enum CommandType {
   /**
    *
    */
+  ReadExp(165, CommandCategory.READ, "edu.umass.cs.gnsserver.gnsapp.clientCommandProcessor.commands.exp.ReadExp",
+          CommandResultType.MAP, true, false,
+          "Returns the value for the key from the GNS for the given guid after authenticating that "
+                  + "READER making request has access authority. "
+                  + "Field can use dot notation to access subfields. "
+                  + "Specify +ALL+ as the <field> to return all fields as a JSON object."
+                  + "Only used for experiment to bypass signature check",
+          new String[]{GNSProtocol.GUID.toString()},
+          // Optional parameters
+          new String[]{GNSProtocol.FIELD.toString(),
+                  GNSProtocol.FIELDS.toString(),
+                  GNSProtocol.READER.toString(),
+                  GNSProtocol.SIGNATURE.toString(),
+                  GNSProtocol.SIGNATUREFULLMESSAGE.toString(),
+                  GNSProtocol.N.toString()}),
+  /**
+   *
+   */
   ReadSecured(161, CommandCategory.READ, "edu.umass.cs.gnsserver.gnsapp.clientCommandProcessor.commands.secured.ReadSecured",
           CommandResultType.MAP, true, false,
           "Returns the value for the key from the GNS for the given guid after authenticating that "
@@ -535,6 +553,21 @@ public enum CommandType {
             GNSProtocol.USER_JSON.toString(),
             GNSProtocol.SIGNATURE.toString(),
             GNSProtocol.SIGNATUREFULLMESSAGE.toString()},
+          new String[]{GNSProtocol.WRITER.toString()}),
+
+  /**
+   *
+   */
+  ReplaceUserJSONExp(222, CommandCategory.UPDATE, "edu.umass.cs.gnsserver.gnsapp.clientCommandProcessor.commands.exp.ReplaceUserJSONExp",
+          CommandResultType.NULL, true, false,
+          "Replaces existing fields in JSON record with the given JSONObject's fields. "
+                  + "Doesn't touch top-level fields that aren't in the given JSONObject. "
+                  + "Only used for experiment to bypass signature check with fixed key",
+          new String[]{GNSProtocol.GUID.toString(),
+                  GNSProtocol.USER_JSON.toString(),
+                  GNSProtocol.SIGNATURE.toString(),
+                  GNSProtocol.SIGNATUREFULLMESSAGE.toString(),
+                  GNSProtocol.N.toString()},
           new String[]{GNSProtocol.WRITER.toString()}),
   /**
    *

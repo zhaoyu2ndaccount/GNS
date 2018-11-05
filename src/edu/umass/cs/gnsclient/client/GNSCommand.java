@@ -110,7 +110,7 @@ public class GNSCommand extends CommandPacket {
                                          Object... keysAndValues) throws ClientException {
     JSONObject command = CommandUtils.createAndSignCommand(type, querier,
             keysAndValues);
-    //System.out.println(command);
+    System.out.println(command);
     if (CommandPacket.getJSONCommandType(command).isMutualAuth()) {
       return new AdminCommandPacket(randomLong(), command);
     }
@@ -192,6 +192,26 @@ public class GNSCommand extends CommandPacket {
           throws ClientException {
     return getCommand(CommandType.ReplaceUserJSON, querierGUID, GNSProtocol.GUID.toString(),
             targetGuid, GNSProtocol.USER_JSON.toString(), getJSONObject(field, value).toString(),
+            GNSProtocol.WRITER.toString(), querierGUID.getGuid());
+  }
+
+  /**
+   *
+   * @param targetGuid
+   * @param field
+   * @param value
+   * @param querierGUID
+   * @param targetIdx
+   * @return
+   * @throws ClientException
+   */
+  public static final CommandPacket fieldUpdateExp(String targetGuid, String field,
+                                                   Object value, GuidEntry querierGUID, int targetIdx)
+          throws ClientException {
+    return getCommand(CommandType.ReplaceUserJSONExp, querierGUID,
+            GNSProtocol.GUID.toString(), targetGuid,
+            GNSProtocol.USER_JSON.toString(), getJSONObject(field, value).toString(),
+            GNSProtocol.N.toString(), targetIdx,
             GNSProtocol.WRITER.toString(), querierGUID.getGuid());
   }
 
@@ -375,6 +395,25 @@ public class GNSCommand extends CommandPacket {
                     : CommandType.ReadUnsigned, querierGUID, GNSProtocol.GUID.toString(), targetGUID,
             GNSProtocol.FIELD.toString(), field, GNSProtocol.READER.toString(),
             querierGUID != null ? querierGUID.getGuid() : null);
+  }
+
+  /**
+   *
+   * @param targetGUID
+   * @param field
+   * @param querierGUID
+   * @param targetIdx
+   * @return
+   * @throws ClientException
+   */
+  public static final CommandPacket fieldReadExp(String targetGUID, String field,
+                                                 GuidEntry querierGUID, int targetIdx) throws ClientException {
+    assert(targetGUID != null);
+    return getCommand(CommandType.ReadExp, querierGUID,
+            GNSProtocol.GUID.toString(), targetGUID,
+            GNSProtocol.FIELD.toString(), field,
+            GNSProtocol.READER.toString(), querierGUID.getGuid(),
+            GNSProtocol.N.toString(), targetIdx);
   }
 
   /**

@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
+import edu.umass.cs.gnsserver.gnsapp.clientCommandProcessor.commandSupport.AccountAccess;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -651,7 +652,7 @@ public class GNSApp extends AbstractReconfigurablePaxosApp<String> implements
   public boolean restore(String name, String state) {
     GNSConfig.getLogger().log(Level.FINE,
             "{0} updating {1} with state [{2}]",
-            new Object[]{this, name, Util.truncate(state, 32, 32)});
+            new Object[]{this, name, state}); //Util.truncate(state, 32, 32)});
     try {
       if (state == null) {
         // If state is null the only thing it means is that we need to
@@ -660,14 +661,57 @@ public class GNSApp extends AbstractReconfigurablePaxosApp<String> implements
         // noop.
         NameRecord.removeNameRecord(nameRecordDB, name);
       } else // state does not equal null so we either create a new record
-      // or update the existing one
-       if (!NameRecord.containsRecord(nameRecordDB, name)) {
+        // or update the existing one
+       if ( !NameRecord.containsRecord(nameRecordDB, name) ) {
           // create a new record
           try {
-            ValuesMap valuesMap = new ValuesMap(new JSONObject(state));
-            NameRecord nameRecord = new NameRecord(nameRecordDB, name,
-                    valuesMap);
-            NameRecord.addNameRecord(nameRecordDB, nameRecord);
+            JSONObject json = new JSONObject(state);
+            ValuesMap valuesMap = new ValuesMap(json);
+            String username = null;
+            if(json.has(AccountAccess.ACCOUNT_INFO)) {
+              username = json.getJSONObject(AccountAccess.ACCOUNT_INFO).getString(GNSProtocol.ACCOUNT_RECORD_USERNAME.toString());
+            }
+
+            if (Config.getGlobalBoolean(GNSConfig.GNSC.ENABLE_EXPERIMENT_MODE_WITHOUT_SIGNATURE) && valuesMap.has(AccountAccess.ACCOUNT_INFO) ) {
+              int recordToCreate = Config.getGlobalInt(GNSConfig.GNSC.NUM_TO_CREATE_SUBGUIDS_PER_GUID);
+              for (int i=0; i<recordToCreate; i++) {
+
+                String recordName = username+'_'+i;
+                String recordGuid = name+'_'+i;
+
+                valuesMap.getJSONObject(AccountAccess.ACCOUNT_INFO)
+                        .put(GNSProtocol.ACCOUNT_RECORD_USERNAME.toString(), recordName);
+                valuesMap.getJSONObject(AccountAccess.ACCOUNT_INFO)
+                        .put(GNSProtocol.GUID.toString(), recordGuid);
+                valuesMap.getJSONObject(AccountAccess.GUID_INFO)
+                        .put(GNSProtocol.ACCOUNT_RECORD_USERNAME.toString(), recordName);
+                valuesMap.getJSONObject(AccountAccess.GUID_INFO)
+                        .put(GNSProtocol.GUID.toString(), recordGuid);
+
+                NameRecord nameRecord = new NameRecord(nameRecordDB, recordName, valuesMap);
+                NameRecord.addNameRecord(nameRecordDB, nameRecord);
+              }
+            }
+            /*
+            else if (Config.getGlobalBoolean(GNSConfig.GNSC.ENABLE_EXPERIMENT_MODE_WITHOUT_SIGNATURE) && valuesMap.has(AccountAccess.HRN_GUID)) {
+              String guid = json.getString(AccountAccess.HRN_GUID);
+
+              int recordToCreate = Config.getGlobalInt(GNSConfig.GNSC.NUM_TO_CREATE_SUBGUIDS_PER_GUID);
+              for (int i=0; i<recordToCreate; i++) {
+                String recordGuid = guid + '_' + i;
+                valuesMap.put(AccountAccess.HRN_GUID, recordGuid);
+
+                NameRecord nameRecord = new NameRecord(nameRecordDB, name+"_"+i,
+                        valuesMap);
+                NameRecord.addNameRecord(nameRecordDB, nameRecord);
+              }
+
+            } */
+            else {
+              NameRecord nameRecord = new NameRecord(nameRecordDB, name,
+                      valuesMap);
+              NameRecord.addNameRecord(nameRecordDB, nameRecord);
+            }
           } catch (RecordExistsException | JSONException e) {
         	  e.printStackTrace();
         	  GNSConfig.getLogger().log(Level.SEVERE,

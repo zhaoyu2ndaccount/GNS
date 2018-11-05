@@ -51,6 +51,17 @@ public class GNSConfig {
   public static enum GNSC implements Config.ConfigurableEnum,
           Config.Disableable {
     /**
+     * Experiment mode, no signature required
+     */
+    ENABLE_EXPERIMENT_MODE_WITHOUT_SIGNATURE(false),
+    /**
+     * The number of subguids to create per guid.
+     * This create a fake initial state for a guid.
+     * This option is only useful when ENABLE_EXPERIMENT_MODE_WITHOUT_SIGNATURE
+     * is true.
+     */
+    NUM_TO_CREATE_SUBGUIDS_PER_GUID(1000),
+    /**
      * Enables secret key communication that is ~180x faster at signing and
      * ~8x faster at verification. True by default as there is no reason to
      * not support it at the server. Except that as of Fall 2016 the iOS

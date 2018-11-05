@@ -420,6 +420,10 @@ public class AccountAccess {
     GNSConfig.getLogger().log(Level.FINE, "allowRemoteLookup is {0}",
             allowRemoteLookup);
     try {
+      /*
+      if (Config.getGlobalBoolean(GNSConfig.GNSC.ENABLE_EXPERIMENT_MODE_WITHOUT_SIGNATURE)) {
+        guid = guid.substring(0, guid.indexOf("_"));
+      }*/
       ValuesMap valuesMapResult = NSFieldAccess.lookupJSONFieldLocalNoAuth(null,
               guid, GUID_INFO, handler.getApp(), false);
       GNSConfig.getLogger().log(
@@ -876,13 +880,18 @@ public class AccountAccess {
         // set up ACL to look like this
         // "_GNS_ACL": {
         // "READ_WHITELIST": {"+ALL+": {"MD": "+ALL+"]}}}
+        // FIXME: gaozy
+        // this is a hack to allow every GUID to write, do not merge this code into master branch
         JSONObject acl = createACL(
                 GNSProtocol.ENTIRE_RECORD.toString(),
-                Arrays.asList(GNSProtocol.EVERYONE.toString()), null,
-                null);
+                Arrays.asList(GNSProtocol.EVERYONE.toString()), GNSProtocol.ENTIRE_RECORD.toString(),
+                Arrays.asList(GNSProtocol.EVERYONE.toString()));
         // prefix is the same for all acls so just pick one to use here
         json.put(MetaDataTypeName.READ_WHITELIST.getPrefix(), acl);
         // set up the default read access
+
+        // write whitelist
+        // json.put(MetaDataTypeName.WRITE_WHITELIST.getPrefix(), acl);
 
         returnCode = handler.getInternalClient().createOrExists(
                 new CreateServiceName(guid, json.toString(), activesSet, activesChangePolicy));
